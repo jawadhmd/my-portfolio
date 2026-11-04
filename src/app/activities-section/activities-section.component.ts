@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivityIconComponent } from "../icons/activity-icon/activity-icon.component";
 import { ActivityItemComponent } from "./activity-item/activity-item.component";
 import { Activity } from './models/Activity';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-activities-section',
@@ -10,15 +11,13 @@ import { Activity } from './models/Activity';
   templateUrl: './activities-section.component.html',
   styleUrl: './activities-section.component.css'
 })
-export class ActivitiesSectionComponent {
+export class ActivitiesSectionComponent implements OnInit {
 
-  public activities : Activity[] = [
-    {
-      title: 'Ionic 3 Workshop',
-      type: 'Workshop',
-      organizer: 'Computer Science Club (AUB)',
-      date: 'April 2017',
-      summary: 'Participated in a 30-hour workshop to build an Ionic 3 application for building CVs'
-    }
-  ]
+  public activities: Activity[] = [];
+
+  constructor(private api: ApiService) {}
+
+  ngOnInit(): void {
+    this.api.getActivities().subscribe(list => this.activities = list);
+  }
 }

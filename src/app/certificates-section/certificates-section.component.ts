@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CertificateIconComponent } from "../icons/certificate-icon/certificate-icon.component";
 import { CertificateItemComponent } from "./certificate-item/certificate-item.component";
 import { Certificate } from './models/Certificate';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-certificates-section',
@@ -10,11 +11,12 @@ import { Certificate } from './models/Certificate';
   templateUrl: './certificates-section.component.html',
   styleUrl: './certificates-section.component.css'
 })
-export class CertificatesSectionComponent {
-  public certificates: Certificate[] = [
-    { title: 'BS in Computer Science (AUB)', imageUrl: 'images/certificates/unavailable.jpg' },
-    { title: 'Ionic 3 Workshop (30h)', imageUrl: 'images/certificates/unavailable.jpg' },
-    { title: 'Bug Bounty for Beginners', imageUrl: 'images/certificates/bug-bounty.jpg' },
-    { title: 'Windows Batch - Hands-On', imageUrl: 'images/certificates/windows-batch.jpg' },
-  ]
+export class CertificatesSectionComponent implements OnInit {
+  public certificates: Certificate[] = [];
+
+  constructor(private api: ApiService) {}
+
+  ngOnInit(): void {
+    this.api.getCertificates().subscribe(list => this.certificates = list);
+  }
 }

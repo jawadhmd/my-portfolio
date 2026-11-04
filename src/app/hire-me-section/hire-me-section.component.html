@@ -9,25 +9,25 @@
                         <app-clock-icon svgClass="h-6 w-6 text-indigo-600"></app-clock-icon>
                         <div>
                             <h3 class="font-semibold">Availability</h3>
-                            <p class="text-gray-600">Part-Time, Freelance</p>
+                            <p class="text-gray-600">{{ hire.availability }}</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <app-calendar-icon svgClass="h-6 w-6 text-indigo-600"></app-calendar-icon>
                         <div>
                             <h3 class="font-semibold">Start Date</h3>
-                            <p class="text-gray-600">To be discussed</p>
+                            <p class="text-gray-600">{{ hire.startDate }}</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <app-email-icon svgClass="h-6 w-6 text-indigo-600"></app-email-icon>
                         <div>
                             <h3 class="font-semibold">Contact</h3>
-                            <p class="text-gray-600">h.rebaie&#64;gmail.com</p>
+                            <p class="text-gray-600">{{ hire.email }}</p>
                         </div>
                     </div>
                     <div class="pt-6">
-                        <a class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary/90 h-11 rounded-md px-8 w-full" href="mailto:h.rebaie@gmail.com">
+                        <a class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary/90 h-11 rounded-md px-8 w-full" [href]="'mailto:' + hire.email">
                             <app-email-icon svgClass="mr-2"></app-email-icon>
                             Contact Me
                         </a>

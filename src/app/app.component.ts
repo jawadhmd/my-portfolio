@@ -11,11 +11,12 @@ import { CertificatesSectionComponent } from "./certificates-section/certificate
 import { ActivitiesSectionComponent } from "./activities-section/activities-section.component";
 import { HireMeSectionComponent } from "./hire-me-section/hire-me-section.component";
 import { FooterComponent } from "./footer/footer.component";
+import { RevealDirective } from './reveal.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, HeroComponent, ExperienceSectionComponent, SkillsSectionComponent, ProjectsSectionComponent, ServicesSectionComponent, CoursesSectionComponent, CertificatesSectionComponent, ActivitiesSectionComponent, HireMeSectionComponent, FooterComponent],
+  imports: [RouterOutlet, NavbarComponent, HeroComponent, ExperienceSectionComponent, SkillsSectionComponent, ProjectsSectionComponent, ServicesSectionComponent, CoursesSectionComponent, CertificatesSectionComponent, ActivitiesSectionComponent, HireMeSectionComponent, FooterComponent, RevealDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
